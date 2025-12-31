@@ -41,6 +41,7 @@ public class DespawnCommand {
 
         if (mountType == null) {
             player.sendMessage(lang.get("messages.invalid-vehicle"));
+            player.sendMessage(player.getVehicle().getName());
             return true;
         }
 
@@ -92,9 +93,9 @@ public class DespawnCommand {
 
         TraitRegistry.revertDashBoostIfActive(horse);
 
-        double maxHealth = horse.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue();
+        double maxHealth = horse.getAttribute(Attribute.MAX_HEALTH).getBaseValue();
         double currentHealth = horse.getHealth();
-        double speed = horse.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).getBaseValue();
+        double speed = horse.getAttribute(Attribute.MOVEMENT_SPEED).getBaseValue();
         AttributeInstance jumpAttr = horse.getAttribute(Attribute.valueOf("HORSE_JUMP_STRENGTH"));
         double jump = jumpAttr != null ? jumpAttr.getBaseValue() : 0.0;
 
@@ -102,6 +103,9 @@ public class DespawnCommand {
         Horse.Color color = horse instanceof Horse ? ((Horse) horse).getColor() : Horse.Color.WHITE;
         AbstractHorseInventory inv = horse.getInventory();
         ItemStack saddle = inv.getSaddle();
+
+        player.sendMessage(inv.getContents().toString());
+
         ItemStack armor = inv instanceof ArmoredHorseInventory armoredInv ? armoredInv.getArmor() : null;
 
         String itemMaterialName = BetterHorses.getInstance().getConfig().getString("settings.horse-item", "SADDLE");

@@ -117,8 +117,8 @@ public class RightClickListener implements Listener {
             }
         }
 
-        setAttribute(horse, Attribute.GENERIC_MAX_HEALTH, health);
-        setAttribute(horse, Attribute.GENERIC_MOVEMENT_SPEED, speed);
+        setAttribute(horse, Attribute.MAX_HEALTH, health);
+        setAttribute(horse, Attribute.MOVEMENT_SPEED, speed);
         setAttribute(horse, Attribute.valueOf("HORSE_JUMP_STRENGTH"), jump);
         horse.setHealth(currentHealth != null ? currentHealth : health);
         horse.setTamed(true);
