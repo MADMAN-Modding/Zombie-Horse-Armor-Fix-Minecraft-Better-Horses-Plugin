@@ -104,9 +104,10 @@ public class DespawnCommand {
         AbstractHorseInventory inv = horse.getInventory();
         ItemStack saddle = inv.getSaddle();
 
-        player.sendMessage(inv.getContents().toString());
+        player.sendMessage(inv.getItem(1).toString());
 
-        ItemStack armor = inv instanceof ArmoredHorseInventory armoredInv ? armoredInv.getArmor() : null;
+        // Gets the armor from the horses inventory instead of an instance of horse-like armor as that wasn't being picked up
+        ItemStack armor = inv.getSize() == 1 ? inv.getItem(1) : null;
 
         String itemMaterialName = BetterHorses.getInstance().getConfig().getString("settings.horse-item", "SADDLE");
         Material material = Material.getMaterial(itemMaterialName.toUpperCase());
