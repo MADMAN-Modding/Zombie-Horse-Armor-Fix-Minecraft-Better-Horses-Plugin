@@ -41,7 +41,6 @@ public class DespawnCommand {
 
         if (mountType == null) {
             player.sendMessage(lang.get("messages.invalid-vehicle"));
-            player.sendMessage(player.getVehicle().getName());
             return true;
         }
 
@@ -104,8 +103,6 @@ public class DespawnCommand {
         AbstractHorseInventory inv = horse.getInventory();
         ItemStack saddle = inv.getSaddle();
 
-        player.sendMessage(inv.getItem(1).toString());
-
         // Gets the armor from the horses inventory instead of an instance of horse-like armor as that wasn't being picked up
         ItemStack armor = inv.getSize() == 2 ? inv.getItem(1) : null;
 
@@ -160,13 +157,7 @@ public class DespawnCommand {
             itemData.set(cooldownKey, PersistentDataType.LONG, cooldown);
         }
         if (saddle != null) itemData.set(new NamespacedKey(BetterHorses.getInstance(), "saddle"), PersistentDataType.STRING, saddle.getType().name());
-        if (armor != null) {
-            player.sendMessage("Armor is not null");
-            itemData.set(new NamespacedKey(BetterHorses.getInstance(), "armor"), PersistentDataType.STRING, armor.getType().name());
-        } else {
-            player.sendMessage("Armor is null");
-        }
-
+        if (armor != null) itemData.set(new NamespacedKey(BetterHorses.getInstance(), "armor"), PersistentDataType.STRING, armor.getType().name());
         item.setItemMeta(meta);
         boolean wasLeashed = horse.isLeashed();
 

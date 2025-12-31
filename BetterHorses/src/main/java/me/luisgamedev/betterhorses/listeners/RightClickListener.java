@@ -158,11 +158,7 @@ public class RightClickListener implements Listener {
             horse.getInventory().setSaddle(new ItemStack(Material.valueOf(saddleStr)));
         }
         if (armorStr != null) {
-            // if (horse.getInventory() instanceof ArmoredHorseInventory armoredInventory) {
                 horse.getInventory().setItem(1, new ItemStack(Material.valueOf(armorStr)));
-                player.sendMessage(armorStr);
-
-            // }
         }
 
         item.setAmount(item.getAmount() - 1);
