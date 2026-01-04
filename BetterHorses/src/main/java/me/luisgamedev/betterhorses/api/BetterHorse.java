@@ -25,21 +25,21 @@ public final class BetterHorse {
     }
 
     public double getMaxHealth() {
-        AttributeInstance attr = handle.getAttribute(Attribute.MAX_HEALTH);
+        AttributeInstance attr = handle.getAttribute(Attribute.GENERIC_MAX_HEALTH);
         return attr != null ? attr.getBaseValue() : 0.0;
     }
 
     public void setMaxHealth(double value) {
-        setAttribute(Attribute.MAX_HEALTH, BetterHorseKeys.HEALTH, value);
+        setAttribute(Attribute.GENERIC_MAX_HEALTH, BetterHorseKeys.HEALTH, value);
     }
 
     public double getSpeed() {
-        AttributeInstance attr = handle.getAttribute(Attribute.MOVEMENT_SPEED);
+        AttributeInstance attr = handle.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED);
         return attr != null ? attr.getBaseValue() : 0.0;
     }
 
     public void setSpeed(double value) {
-        setAttribute(Attribute.MOVEMENT_SPEED, BetterHorseKeys.SPEED, value);
+        setAttribute(Attribute.GENERIC_MOVEMENT_SPEED, BetterHorseKeys.SPEED, value);
     }
 
     public double getJump() {

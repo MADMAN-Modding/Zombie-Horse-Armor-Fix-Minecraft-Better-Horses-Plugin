@@ -92,9 +92,9 @@ public class DespawnCommand {
 
         TraitRegistry.revertDashBoostIfActive(horse);
 
-        double maxHealth = horse.getAttribute(Attribute.MAX_HEALTH).getBaseValue();
+        double maxHealth = horse.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue();
         double currentHealth = horse.getHealth();
-        double speed = horse.getAttribute(Attribute.MOVEMENT_SPEED).getBaseValue();
+        double speed = horse.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).getBaseValue();
         AttributeInstance jumpAttr = horse.getAttribute(Attribute.valueOf("HORSE_JUMP_STRENGTH"));
         double jump = jumpAttr != null ? jumpAttr.getBaseValue() : 0.0;
 

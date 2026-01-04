@@ -173,12 +173,12 @@ public class HorseBreedListener implements Listener {
     }
 
     private double getHealth(AbstractHorse horse) {
-        AttributeInstance attribute = horse.getAttribute(Attribute.MAX_HEALTH);
+        AttributeInstance attribute = horse.getAttribute(Attribute.GENERIC_MAX_HEALTH);
         return attribute != null ? attribute.getBaseValue() : 0.0;
     }
 
     private double getSpeed(AbstractHorse horse) {
-        AttributeInstance attribute = horse.getAttribute(Attribute.MOVEMENT_SPEED);
+        AttributeInstance attribute = horse.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED);
         return attribute != null ? attribute.getBaseValue() : 0.0;
     }
 
@@ -188,7 +188,7 @@ public class HorseBreedListener implements Listener {
     }
 
     private void setHealth(AbstractHorse horse, double value) {
-        AttributeInstance attr = horse.getAttribute(Attribute.MAX_HEALTH);
+        AttributeInstance attr = horse.getAttribute(Attribute.GENERIC_MAX_HEALTH);
         if (attr != null) {
             attr.setBaseValue(value);
         }
@@ -196,7 +196,7 @@ public class HorseBreedListener implements Listener {
     }
 
     private void setSpeed(AbstractHorse horse, double value) {
-        AttributeInstance attribute = horse.getAttribute(Attribute.MOVEMENT_SPEED);
+        AttributeInstance attribute = horse.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED);
         if (attribute != null) {
             attribute.setBaseValue(value);
         }
