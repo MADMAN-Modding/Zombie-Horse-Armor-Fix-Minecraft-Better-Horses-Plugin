@@ -3,6 +3,7 @@ package me.luisgamedev.betterhorses.listeners;
 import me.luisgamedev.betterhorses.BetterHorses;
 import me.luisgamedev.betterhorses.api.BetterHorsesAPI;
 import me.luisgamedev.betterhorses.api.events.BetterHorseSpawnEvent;
+import me.luisgamedev.betterhorses.commands.DespawnCommand;
 import me.luisgamedev.betterhorses.language.LanguageManager;
 import me.luisgamedev.betterhorses.utils.MountConfig;
 import me.luisgamedev.betterhorses.utils.SupportedMountType;
@@ -19,7 +20,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.ArmoredHorseInventory;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -30,7 +30,6 @@ public class RightClickListener implements Listener {
 
     @EventHandler
     public void onRightClick(PlayerInteractEvent event) {
-
         if (event.getHand() != EquipmentSlot.HAND) return;
 
         Action action = event.getAction();

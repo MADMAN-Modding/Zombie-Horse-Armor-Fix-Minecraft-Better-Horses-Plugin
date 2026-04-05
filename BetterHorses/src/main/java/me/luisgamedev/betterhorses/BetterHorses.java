@@ -118,6 +118,8 @@ public class BetterHorses extends JavaPlugin {
             pluginManager.registerEvents(new RightClickListener(), this);
         }
 
+        pluginManager.registerEvents(new HorseDismountListener(), this);
+
         if (config.getBoolean("settings.rider-invulnerable", false)) {
             pluginManager.registerEvents(new RiderInvulnerableListener(), this);
         }

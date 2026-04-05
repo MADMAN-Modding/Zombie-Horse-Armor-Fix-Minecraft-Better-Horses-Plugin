@@ -27,13 +27,10 @@ import java.util.List;
 
 public class DespawnCommand {
 
-    public static boolean despawnHorseToItem(Player player) {
-        LanguageManager lang = BetterHorses.getInstance().getLang();
+    public static boolean despawnHorseToItem(Player player, AbstractHorse horse) {
+                LanguageManager lang = BetterHorses.getInstance().getLang();
 
-        if (!(player.getVehicle() instanceof AbstractHorse horse)) {
-            player.sendMessage(lang.get("messages.invalid-vehicle"));
-            return true;
-        }
+  
 
         SupportedMountType mountType = SupportedMountType.fromEntity(horse)
                 .filter(type -> type.isEnabled(BetterHorses.getInstance().getConfig()))
@@ -184,6 +181,17 @@ public class DespawnCommand {
 
         player.sendMessage(lang.getFormatted("messages.horse-despawned", "%mount%", mountName));
         return true;
+    }
+
+    public static boolean despawnHorseToItem(Player player) {
+        LanguageManager lang = BetterHorses.getInstance().getLang();
+
+        if (!(player.getVehicle() instanceof AbstractHorse horse)) {
+            player.sendMessage(lang.get("messages.invalid-vehicle"));
+            return true;
+        }
+
+        return player.getVehicle().eject();
     }
 
     private static String formatTraitName(String raw) {
